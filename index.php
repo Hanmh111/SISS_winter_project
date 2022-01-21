@@ -7,6 +7,9 @@
       <script type="text/javascript" src=""></script>
   </head>
   <body>
-    <h1>문제</h1>
+    <h1>추리 게임</h1>
+    <a href="gamestart.php">게임 시작</a>
+    <a href="game_description.php">게임 설명</a>
+    <a href="community.php">커뮤니티</a>
   </body>
 </html>
