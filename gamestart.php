@@ -7,9 +7,7 @@
       <script type="text/javascript" src=""></script>
   </head>
   <body>
-    <h1>게임 설명</h1>
-    <p>
-      게임 설명 내용
-    </p>
+    <div><a href="index.php">home</a></div>
+    <h1>문제</h1>
   </body>
 </html>

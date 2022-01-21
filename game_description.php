@@ -7,8 +7,10 @@
       <script type="text/javascript" src=""></script>
   </head>
   <body>
-    <h1>추리 게임</h1>
-    <a href="gamestart.html">게임 시작</a>
-    <a href="game_description.html">게임 설명</a>
+    <div><a href="index.php">home</a></div>
+    <h1>게임 설명</h1>
+    <p>
+      게임 설명 내용
+    </p>
   </body>
 </html>
