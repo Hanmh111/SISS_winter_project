@@ -16,10 +16,11 @@ if (mysqli_num_rows($result)==1){
   $row=mysqli_fetch_assoc($result);
 
   if($row['login_pw']==$input_pw){
+    $_SESSION['is_logged']='YES';
     $_SESSION['userid']=$input_id;
     if(isset($_SESSION['userid'])){
       ?><script>
-      alert("로그인되었습니다.");
+      alert("로그인 되었습니다.");
       location.replace("./index.php");
       </script>
       <?php

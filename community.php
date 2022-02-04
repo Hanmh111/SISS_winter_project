@@ -1,21 +1,46 @@
 <?php
+session_start();
+$is_logged=$_SESSION['is_logged'];
+if($is_logged=='YES'){
+  echo $_SESSION['userid'],"님 환영합니다.</br>";
+  echo "<a href=process_logout.php>로그아웃</a>";
+}
+
+else{
+?>
+<script>
+alert("로그인해야 접근하실 수 있습니다.");
+location.replace("./index.php");
+</script>
+<?php } ?>
+
+<?php
   $conn = mysqli_connect(
     'localhost',
     'root',
     'qkrqhrja2',
     'siss_winter');
+
   $sql = "SELECT * FROM community_text";
   $result = mysqli_query($conn, $sql);
   $list = '';
-
-  while($row = mysqli_fetch_array($result)){
-    $list = $list."<li><a href=\"community.php?id={$row['id']}\">
-    {$row['title']}</a></li>";
+  $sql_spoiler = "SELECT * FROM community_text";
+  $result_spoiler = mysqli_query($conn, $sql_spoiler);
+  $row = mysqli_fetch_array($result_spoiler);
+  while($row = mysqli_fetch_array($result_spoiler)){
+    if ($row['spoiler'] == 'spoiler'){
+      $list = $list."<li><a href=\"community.php?id={$row['id']}\">[스포주의] {$row['title']}</a></li>";
+    }
+    else {
+      $list = $list."<li><a href=\"community.php?id={$row['id']}\">{$row['title']}</a></li>";
+    }
   }
 
   $article = array(
     'title'=>'',
-    'description'=>''
+    'author'=>'',
+    'description'=>'',
+    'spoiler'=>''
   );
 
   $update_link = '';
@@ -23,12 +48,21 @@
 
   if(isset($_GET['id'])){
     $filtered_id = mysqli_real_escape_string($conn, $_GET['id']);
-    $sql = "SELECT * FROM community_text WHERE id={$filtered_id}";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
-    $article['title'] = $row['title'];
-    $article['description'] = $row['description'];
+    $sql_id = "SELECT * FROM community_text WHERE id={$filtered_id}";
+    $result_id = mysqli_query($conn, $sql_id);
+    $row = mysqli_fetch_array($result_id);
 
+
+    $article['title'] = $row['title'];
+    $article['author'] = '작성자: '.$row['author'];
+    $article['description'] = $row['description'];
+    $article['spoiler'] = $row['spoiler'];
+
+    if ($article['spoiler'] == 'spoiler'){
+      $article['title'] = '[스포주의] '.$row['title'];
+    }
+
+    if ($_SESSION['userid']==$row['author']){
     $update_link = '<a href="update.php?id='.$_GET['id'].'">글 수정</a>';
     $delete_link = '
       <form action="process_delete.php" method="post">
@@ -36,6 +70,8 @@
         <input type="submit" value="delete">
       </form>';
   }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -72,8 +108,10 @@
         'root',
         'qkrqhrja2',
         'siss_winter');
+
       $sql="SELECT * FROM community_text
       WHERE description like '%$keyword%'";
+
       $result=mysqli_query($conn,$sql);
       $row=mysqli_fetch_array($result);
       print_r($row);
@@ -83,12 +121,14 @@
     <?=$update_link?>
     <?=$delete_link?>
     <a href="information.php">문제 제보</a>
+
     <h2><?=$article['title']?></h2>
+    <?=$article['author']?><br>
     <?=$article['description']?>
+
     <ol>
       <?=$list?>
     </ol>
-
 
 </body>
 </html>

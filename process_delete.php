@@ -2,7 +2,7 @@
 $conn = mysqli_connect(
   'localhost',
   'root',
-  '111111',
+  'qkrqhrja2',
   'siss_winter');
 
 settype($_POST['id'], 'integer');

@@ -1,13 +1,13 @@
 <?php
 
 $conn = mysqli_connect("localhost", "root", "qkrqhrja2", "siss_winter") or die ("connect fail");
-$sql = "SELECT * FROM privacy";
+$sql = "SELECT * FROM gamelogin";
 $result = $conn->query($sql);
 $total=mysqli_num_rows($result);
 
 session_start();
-
-if(isset($_SESSION['id'])){
+if(isset($_SESSION['is_logged'])){
+  $is_logged = $_SESSION['is_logged'];
   echo $_SESSION['userid'],"님 환영합니다.</br>";
   echo "<a href=process_logout.php>로그아웃</a>";
 

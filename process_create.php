@@ -1,4 +1,6 @@
 <?php
+session_start();
+$is_logged=$_SESSION['is_logged'];
 $conn = mysqli_connect(
   'localhost',
   'root',
@@ -7,17 +9,19 @@ $conn = mysqli_connect(
 
 $filtered = array(
   'title'=>mysqli_real_escape_string($conn, $_POST['title']),
-  'description'=>mysqli_real_escape_string($conn, $_POST['description'])
+  'description'=>mysqli_real_escape_string($conn, $_POST['description']),
+  'author'=>mysqli_real_escape_string($conn, $_SESSION['userid']),
 );
 
 
 $sql = "
   INSERT INTO community_text
-    (title, description, author)
+    (title, description, author, spoiler)
     VALUES(
-      '{$_POST['title']}',
-      '{$_POST['description']}',
-      '{$_POST['id']}'
+      '{$filtered['title']}',
+      '{$filtered['description']}',
+      '{$filtered['author']}',
+      '{$_POST['spoiler']}'
       )
 ";
 
