@@ -17,22 +17,26 @@ $sql_game = "SELECT * FROM gamelevel";
 $result= mysqli_query($conn, $sql_game);
 $row_game = mysqli_fetch_array($result);
 
-$sql_login = "SELECT * FROM gamelogin";
+$sql_login = "SELECT * FROM gamelogin WHERE login_id = '{$_SESSION['userid']}'";
 $result = mysqli_query($conn, $sql_login);
 $row_login = mysqli_fetch_array($result);
 $num = $filtered['id'] + 1;
 
 
 if ($filtered['answer'] == $row_game['answer']) {
-  if ($num > $row_login['level']){
+  if ($num > intval($row_login['level'])){
     $sql = "
       UPDATE gamelogin
         SET
-          level = '{$num}',
+          level = '{$num}'
         WHERE
-          id = {$row_login['id']}
+          login_id = '{$_SESSION['userid']}'
     ";
+    $result = mysqli_query($conn, $sql);
     }
+    // update gamelogin set level='2' where id = '2';
+    var_dump($num);
+    var_dump(intval($row_login['level']));  // 값이 아니라 몇 번째 원소인지가 나오고 있었음
     ?>
     <script>
     alert('정답입니다!');

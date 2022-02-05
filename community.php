@@ -26,7 +26,7 @@ location.replace("./index.php");
   $list = '';
   $sql_spoiler = "SELECT * FROM community_text";
   $result_spoiler = mysqli_query($conn, $sql_spoiler);
-  $row = mysqli_fetch_array($result_spoiler);
+
   while($row = mysqli_fetch_array($result_spoiler)){
     if ($row['spoiler'] == 'spoiler'){
       $list = $list."<li><a href=\"community.php?id={$row['id']}\">[스포주의] {$row['title']}</a></li>";
