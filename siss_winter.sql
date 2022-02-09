@@ -66,7 +66,7 @@ CREATE TABLE `community_text` (
 
 LOCK TABLES `community_text` WRITE;
 /*!40000 ALTER TABLE `community_text` DISABLE KEYS */;
-INSERT INTO `community_text` VALUES (3,'mysql','mysql is...','2022-01-21 05:35:00','Anonymous','x'),(4,'Oracle','Oracle is ...','2022-01-21 05:35:35','Anonymous','x'),(5,'SQL Server','SQL Server is ...','2022-01-21 05:35:55','Anonymous','x'),(6,'MongoDB','MongoDB is ...','2022-01-21 05:36:12','Anonymous','x'),(7,'hello','this is web page','2022-01-21 05:38:45','Anonymous','x'),(12,'hello2','hello2...','2022-01-22 01:21:41','Anonymous','x'),(13,'test','dd','2022-02-04 20:34:53','YES','spoiler'),(14,'test2','this is test2.','2022-02-04 20:44:03','user1','spoiler'),(15,'test3','this is test3','2022-02-04 22:39:18','user1','spoiler'),(16,'test4','test4','2022-02-04 22:47:08','user1','');
+INSERT INTO `community_text` VALUES (3,'mysql','mysql is...','2022-01-21 05:35:00','Anonymous','x'),(4,'Oracle','Oracle is ...','2022-01-21 05:35:35','Anonymous','x'),(5,'SQL Server','SQL Server is ...','2022-01-21 05:35:55','Anonymous','x'),(6,'MongoDB','MongoDB is ...','2022-01-21 05:36:12','Anonymous','x'),(7,'hello','this is web page','2022-01-21 05:38:45','Anonymous','x'),(12,'hello2','hello2...','2022-01-22 01:21:41','Anonymous','x'),(13,'test','dd','2022-02-04 20:34:53','YES','spoiler'),(14,'test2','this is test2. aaa','2022-02-04 20:44:03','user1','spoiler'),(15,'test3','this is test3','2022-02-04 22:39:18','user1','spoiler'),(16,'test4','test4','2022-02-04 22:47:08','user1','');
 /*!40000 ALTER TABLE `community_text` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +120,7 @@ CREATE TABLE `gamelogin` (
 
 LOCK TABLES `gamelogin` WRITE;
 /*!40000 ALTER TABLE `gamelogin` DISABLE KEYS */;
-INSERT INTO `gamelogin` VALUES (1,'admin','0000','2022-01-21 19:14:13',6),(2,'user1','1111','2022-02-04 19:43:27',1);
+INSERT INTO `gamelogin` VALUES (1,'admin','0000','2022-01-21 19:14:13',6),(2,'user1','1111','2022-02-04 19:43:27',4);
 /*!40000 ALTER TABLE `gamelogin` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -133,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-05  4:29:39
+-- Dump completed on 2022-02-10  5:16:25
