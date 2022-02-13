@@ -52,3 +52,5 @@ if ($filtered['answer'] == $row_game['answer']) {
 <?php
     }
 ?>
+
+
