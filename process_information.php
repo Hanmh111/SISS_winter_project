@@ -17,7 +17,6 @@ $sql = "
         '{$filtered['title']}',
         '{$filtered['description']}',
         '{$filtered['id']}'
-
     )
 ";
 //Anonymous는 나중에 로그인한 id로 바꿔야 합니다.
