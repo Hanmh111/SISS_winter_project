@@ -25,3 +25,4 @@ else{
   header('Location: /community.php');
 }
 ?>
+
