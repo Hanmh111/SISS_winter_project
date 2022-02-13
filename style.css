@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
+h1,h2,h3,h4 {color: white;
+
+          }
+head, body {
+  background-color : black;
+  margin: 10px 50px 30px 50px;
+  padding: 30px;
+  font-family: 'Song Myung', serif;
+  font-size: 25px;
+
+  line-height: 200%;
+  }
+
+.right{
+  text-align: right;
+}
+
+.centering{
+  color : white;
+  text-align: center;
+}
+
+a {
+  text-align: center;
+  text-decoration: none; /* 링크의 밑줄 제거 */
+  color: white; /* 링크의 색상 제거 */
+}
+
+p,ol {line-height: 200%;
+}
+
+#firsthint { display: none; }
+#firsthint:checked ~ .one { display: block; }
+.one { display: none; }
+
+#secondhint { display: none; }
+#secondhint:checked ~ .two { display: block; }
+.two { display: none; }
