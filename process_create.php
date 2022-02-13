@@ -31,3 +31,4 @@ if($result === false){
   error_log(mysqli_error($conn));}
 header('Location: /community.php');
 ?>
+
