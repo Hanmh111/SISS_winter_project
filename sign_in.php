@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="style.css">
   <head>
     <meta charset="utf-8">
     <title>SISS Winter Projext</title>
@@ -7,7 +8,8 @@
       <script type="text/javascript" src=""></script>
   </head>
   <body>
-    <h1><a href="index.php">추리 게임</a></h1>
+    <div class="centering"><a href="index.php"><img src="banner.jpg" width="150" height="150"></a>
+    <h1>추리 게임</a></h1>
     <h2>회원 가입</h2>
     <form action="process_sign_up.php" method="post">
       <h4>Id</h4>
