@@ -1,4 +1,6 @@
 <?php
+session_start();
+$is_logged=$_SESSION['is_logged'];
 $conn = mysqli_connect(
   'localhost',
   'root',
@@ -7,7 +9,8 @@ $conn = mysqli_connect(
 
 $filtered = array(
   'title'=>mysqli_real_escape_string($conn, $_POST['title']),
-  'description'=>mysqli_real_escape_string($conn, $_POST['description'])
+  'description'=>mysqli_real_escape_string($conn, $_POST['description']),
+  'author'=>mysqli_real_escape_string($conn, $_SESSION['userid'])
 );
 
 $sql = "
@@ -16,10 +19,9 @@ $sql = "
     VALUES(
         '{$filtered['title']}',
         '{$filtered['description']}',
-        '{$filtered['id']}'
+        '{$filtered['author']}'
     )
 ";
-//Anonymous는 나중에 로그인한 id로 바꿔야 합니다.
 
 $result = mysqli_query($conn, $sql);
 if($result === false){

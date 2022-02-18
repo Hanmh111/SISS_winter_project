@@ -34,9 +34,6 @@ if ($filtered['answer'] == $row_game['answer']) {
     ";
     $result = mysqli_query($conn, $sql);
     }
-    // update gamelogin set level='2' where id = '2';
-    var_dump($num);
-    var_dump(intval($row_login['level']));  // 값이 아니라 몇 번째 원소인지가 나오고 있었음
     ?>
     <script>
     alert('정답입니다!');
@@ -52,5 +49,3 @@ if ($filtered['answer'] == $row_game['answer']) {
 <?php
     }
 ?>
-
-

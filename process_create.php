@@ -10,9 +10,8 @@ $conn = mysqli_connect(
 $filtered = array(
   'title'=>mysqli_real_escape_string($conn, $_POST['title']),
   'description'=>mysqli_real_escape_string($conn, $_POST['description']),
-  'author'=>mysqli_real_escape_string($conn, $_SESSION['userid']),
+  'author'=>mysqli_real_escape_string($conn, $_SESSION['userid'])
 );
-
 
 $sql = "
   INSERT INTO community_text
@@ -31,4 +30,3 @@ if($result === false){
   error_log(mysqli_error($conn));}
 header('Location: /community.php');
 ?>
-

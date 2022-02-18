@@ -2,22 +2,22 @@
 session_start();
 if(isset($_SESSION['is_logged'])){
   $is_logged = $_SESSION['is_logged']; ?>
-  <div style="color: white;"><?php
-  echo $_SESSION['userid'],"님 환영합니다.</br>"; ?></div><?php
-  echo "<a href=process_logout.php>로그아웃</a>";
-}
-else{
+  <div class="left"><?php echo "USER | ".$_SESSION['userid']; ?></div>
+  <div class="right"><?php echo "<a href=process_logout.php>로그아웃</a>";?></div>
+
+<?php }
+else {
   ?>
-  <div style="color: white;"><?php
-  echo "로그인 먼저 해주세요"; ?></div>
-  <div class="right">
-    <a href="sign_in.php">회원가입</a>
-    <a href="login.php">로그인</a>
-  </div>  <?php
-;}
-?>
+  <script>
+    alert("로그인 먼저 해주세요.");
+    location.href='index.php';
+  </script>
+  <?php
+  }
+  ?>
 
 <?php
+
   $conn = mysqli_connect(
     'localhost',
     'root',
@@ -58,7 +58,7 @@ else{
 
     $article['title'] = $row['title'];
     $article['author'] = '작성자: '.$row['author'];
-    $article['description'] = $row['description'];
+    $article['description'] = nl2br($row['description']);
     $article['spoiler'] = $row['spoiler'];
 
     if ($article['spoiler'] == 'spoiler'){
@@ -80,59 +80,38 @@ else{
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
     <title>SISS Winter Projext</title>
-      <link rel="stylesheet" type="text/css" href="#"/>
+      <link rel="stylesheet" href="style.css">
       <script type="text/javascript" src=""></script>
   </head>
-  <body>
-    <div class="centering"><a href="index.php"><img src="banner.jpg" width="150" height="150"></a>
-    <a href="community.php"><h1>커뮤니티</h1></a></div>
-
-
-
-    <?php
-    if(empty($_REQUEST["keyword"])){
-      $keyword="";
-    }
-    else{
-      $keyword=$_REQUEST["keyword"];
-    }
-    ?>
-
-    <form class="navbar-form pull-left" method="get" action="">
-    <input type="text" name="keyword" class="form-control" placeholder="검색어를 입력 후 enter를 누르세요" autofocus>
-    </form>
-
-
-    <?
-      $conn = mysqli_connect(
-        'localhost',
-        'root',
-        'qkrqhrja2',
-        'siss_winter');
-
-      $sql="SELECT * FROM community_text
-      WHERE description like '%$keyword%'";
-
-      $result=mysqli_query($conn,$sql);
-      $row=mysqli_fetch_array($result);
-      print_r($row);
-      ?>
-
-    <a href="create.php">글 작성</a>
-    <?=$update_link?>
-    <?=$delete_link?>
-    <a href="information.php">문제 제보</a>
-
-    <h2><?=$article['title']?></h2>
-    <h3><?=$article['author']?></h3><p>
-    <h4><?=$article['description']?></h4>
-
-    <ol>
-      <?=$list?>
-    </ol>
+  <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+    <div class="description">
+      <div class="centering">
+      <a href="index.php"><img src="banner.jpg" width="150" height="150"></a>
+      <a href="community.php"><h1>커뮤니티</h1></a>
+      <table class="community">
+        <tr>
+          <td><a href="create.php">글 작성</a></td>
+          <td><?=$update_link?></td>
+          <td><?=$delete_link?></td>
+          <td><a href="information.php">문제 제보</a></td>
+        </tr>
+      </table>
+      <table class="community">
+        <tr>
+          <td>
+            <h2><?=$article['title']?></h2>
+            <h3><?=$article['author']?></h3>
+            <h4><?=$article['description']?></h4>
+          </td>
+        </tr>
+      </table>
+      </div>
+        <ol>
+          <?=$list?>
+        </ol>
+    </div>
 
 </body>
 </html>

@@ -8,31 +8,27 @@ $total=mysqli_num_rows($result);
 session_start();
 if(isset($_SESSION['is_logged'])){
   $is_logged = $_SESSION['is_logged']; ?>
-  <div style="color: white;"><?php
-  echo $_SESSION['userid'],"님 환영합니다.</br>"; ?></div><?php
-  echo "<a href=process_logout.php>로그아웃</a>";
-}
+  <div class="left"><?php echo $_SESSION['userid'],"님 환영합니다.</br>"; ?></div>
+  <div class="right"><?php echo "<a href=process_logout.php>로그아웃</a>";?></div>
+<?php }
 else{
   ?>
-  <div style="color: white;"><?php
-  echo "로그인 먼저 해주세요"; ?></div>
+  <div class="left"> <?php echo "로그인 먼저 해주세요"; ?></div>
   <div class="right">
-    <a href="sign_in.php">회원가입</a>
-    <a href="login.php">로그인</a>
-  </div>  <?php
+    <a href="login.php">로그인</a> / <a href="sign_in.php">회원가입</a>
+  </div> <?php
 ;}
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
     <title>SISS Winter Projext</title>
-      <link rel="stylesheet" type="text/css" href="#"/>
+      <link rel="stylesheet" href="style.css">
       <script type="text/javascript" src=""></script>
   </head>
-  <body>
+  <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
   <div class="centering">
     <h1>추리 게임</h1>
     <img src="banner.jpg" width="550" height="500"><p>

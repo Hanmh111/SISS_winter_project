@@ -1,4 +1,6 @@
 <?php
+session_start();
+$is_logged=$_SESSION['is_logged'];
 $conn = mysqli_connect(
   'localhost',
   'root',
@@ -17,7 +19,8 @@ $sql = "
   UPDATE community_text
     SET
       title = '{$filtered['title']}',
-      description = '{$filtered['description']}'
+      description = '{$filtered['description']}',
+      spoiler = '{$_POST['spoiler']}'
     WHERE
       id = {$filtered['id']}
 ";
@@ -28,4 +31,3 @@ if($result === false){
   error_log(mysqli_error($conn));}
 header('Location: /community.php');
 ?>
-
