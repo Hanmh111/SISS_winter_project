@@ -9,7 +9,7 @@ $filtered = array(
   'answer'=>mysqli_real_escape_string($conn, $_POST['answer'])
 );
 
-$sql_game = "SELECT * FROM gamelevel";
+$sql_game = "SELECT * FROM gamelevel WHERE id = '{$filtered['id']}'";
 $result= mysqli_query($conn, $sql_game);
 $row_game = mysqli_fetch_array($result);
 
