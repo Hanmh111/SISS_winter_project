@@ -95,8 +95,6 @@ else {
                $row = mysqli_fetch_array($result_id);
                echo $row['firsthint']."<br>";
              }
-
-             mysqli_close($conn);
              ?>
            </div>
 
@@ -116,8 +114,6 @@ else {
                  $row = mysqli_fetch_array($result_id);
                  echo $row['secondhint']. "<br>";
                }
-
-               mysqli_close($conn);
              ?>
           </div>
           <div class="centering"><?=$answer_link?></div>
