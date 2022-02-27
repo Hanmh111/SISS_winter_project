@@ -1,5 +1,27 @@
 <?php
 session_start();
+<<<<<<< HEAD
+if(isset($_SESSION['is_logged'])){
+  $is_logged = $_SESSION['is_logged']; ?>
+  <div class="left"><?php echo "USER | ".$_SESSION['userid']; ?></div>
+  <div class="right"><?php echo "<a href=process_logout.php>로그아웃</a>";?></div>
+
+<?php }
+else {
+  ?>
+  <script>
+    alert("로그인 먼저 해주세요.");
+    location.href='index.php';
+  </script>
+  <?php
+  }
+  ?>
+
+<?php
+
+  require_once('lib/conn.php');
+
+=======
 $is_logged=$_SESSION['is_logged'];
 if($is_logged=='YES'){
   echo $_SESSION['userid'],"님 환영합니다.</br>";
@@ -22,19 +44,37 @@ location.replace("./index.php");
     'root',
     'qkrqhrja2',
     'siss_winter');
+>>>>>>> main
   $sql = "SELECT * FROM community_text";
   $result = mysqli_query($conn, $sql);
   $list = '';
+  $sql_spoiler = "SELECT * FROM community_text";
+  $result_spoiler = mysqli_query($conn, $sql_spoiler);
 
+<<<<<<< HEAD
+  while($row = mysqli_fetch_array($result_spoiler)){
+    if ($row['spoiler'] == 'spoiler'){
+      $list = $list."<li><a href=\"community.php?id={$row['id']}\">[스포주의] {$row['title']}</a></li>";
+    }
+    else {
+      $list = $list."<li><a href=\"community.php?id={$row['id']}\">{$row['title']}</a></li>";
+    }
+=======
   while($row = mysqli_fetch_array($result)){
     $list = $list."<li><a href=\"community.php?id={$row['id']}\">
     {$row['title']}</a></li>";
+>>>>>>> main
   }
 
   $article = array(
     'title'=>'',
     'author'=>'',
+<<<<<<< HEAD
+    'description'=>'',
+    'spoiler'=>''
+=======
     'description'=>''
+>>>>>>> main
   );
 
   $update_link = '';
@@ -42,6 +82,22 @@ location.replace("./index.php");
 
   if(isset($_GET['id'])){
     $filtered_id = mysqli_real_escape_string($conn, $_GET['id']);
+<<<<<<< HEAD
+    $sql_id = "SELECT * FROM community_text WHERE id={$filtered_id}";
+    $result_id = mysqli_query($conn, $sql_id);
+    $row = mysqli_fetch_array($result_id);
+
+
+    $article['title'] = $row['title'];
+    $article['author'] = '작성자: '.$row['author'];
+    $article['description'] = nl2br($row['description']);
+    $article['spoiler'] = $row['spoiler'];
+
+    if ($article['spoiler'] == 'spoiler'){
+      $article['title'] = '[스포주의] '.$row['title'];
+    }
+
+=======
     $sql = "SELECT * FROM community_text WHERE id={$filtered_id}";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
@@ -52,6 +108,7 @@ location.replace("./index.php");
     ?>
 
     <?php
+>>>>>>> main
     if ($_SESSION['userid']==$row['author']){
     $update_link = '<a href="update.php?id='.$_GET['id'].'">글 수정</a>';
     $delete_link = '
@@ -59,6 +116,41 @@ location.replace("./index.php");
         <input type="hidden" name="id" value="'.$_GET['id'].'">
         <input type="submit" value="delete">
       </form>';
+<<<<<<< HEAD
+  }
+}
+
+?>
+
+<?php require_once('view/top.php');?>
+    <div class="description">
+      <div class="centering">
+      <a href="index.php"><img src="banner.jpg" width="150" height="150"></a>
+      <a href="community.php"><h1>커뮤니티</h1></a>
+      <table class="community">
+        <tr>
+          <td><a href="create.php">글 작성</a></td>
+          <td><?=$update_link?></td>
+          <td><?=$delete_link?></td>
+          <td><a href="information.php">문제 제보</a></td>
+        </tr>
+      </table>
+      <table class="community">
+        <tr>
+          <td>
+            <h2><?=$article['title']?></h2>
+            <h3><?=$article['author']?></h3>
+            <h4><?=$article['description']?></h4>
+          </td>
+        </tr>
+      </table>
+      </div>
+        <ol>
+          <?=$list?>
+        </ol>
+    </div>
+<?php require_once('view/bottom.php');?>
+=======
   }}
 ?>
 
@@ -117,3 +209,4 @@ location.replace("./index.php");
 
 </body>
 </html>
+>>>>>>> main

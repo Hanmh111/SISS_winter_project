@@ -1,9 +1,15 @@
 <?php
+<<<<<<< HEAD
+session_start();
+$is_logged=$_SESSION['is_logged'];
+require_once('lib/conn.php');
+=======
 $conn = mysqli_connect(
   'localhost',
   'root',
   'qkrqhrja2',
   'siss_winter');
+>>>>>>> main
 
 settype($_POST['id'], 'integer');
 $filtered = array(
@@ -17,7 +23,8 @@ $sql = "
   UPDATE community_text
     SET
       title = '{$filtered['title']}',
-      description = '{$filtered['description']}'
+      description = '{$filtered['description']}',
+      spoiler = '{$_POST['spoiler']}'
     WHERE
       id = {$filtered['id']}
 ";

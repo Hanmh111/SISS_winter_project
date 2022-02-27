@@ -1,9 +1,18 @@
 <?php
+<<<<<<< HEAD
+session_start();
+if(isset($_SESSION['is_logged'])){
+  $is_logged = $_SESSION['is_logged'];} ?>
+
+<?php
+  require_once('lib/conn.php');
+=======
   $conn = mysqli_connect(
     'localhost',
     'root',
     'qkrqhrja2',
     'siss_winter');
+>>>>>>> main
   $sql = "SELECT * FROM community_text";
   $result = mysqli_query($conn, $sql);
   $list = '';
@@ -24,25 +33,29 @@
     $article['description'] = $row['description'];
 
     $update_link = '<a href="update.php?id='.$_GET['id'].'">글 수정</a>';
+    if ($_SESSION['userid']!=$row['author']) {
+      header("Location: community.php");
+    }
   }
-?>
+  ?>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>SISS Winter Projext</title>
-      <link rel="stylesheet" type="text/css" href="#"/>
-      <script type="text/javascript" src=""></script>
-  </head>
-  <body>
-    <div><a href="index.php">home</a></div>
-    <div><a href="community.php"><h1>커뮤니티</h1></a></div>
-    <h3>글 수정</h2>
-    <form action="process_update.php" method="POST">
-      <input type="hidden" name="id" value="<?=$_GET['id']?>">
-      <p><input type="text" name="title" placeholder="제목" value="<?=$article['title']?>"></p>
-      <p><textarea name="description" rows="8" cols="80"><?=$article['description']?></textarea></p>
-      <p><input type="submit"></p>
-  </body>
-</html>
+<?php require_once('view/top.php');?>
+    <div class="centering">
+      <div><a href="index.php"><img src="banner.jpg" width="150" height="150"></a></div>
+      <div><a href="community.php"><h1>커뮤니티</h1></a></div>
+      <div><h3>글 수정</h3></div>
+      <form action="process_update.php" method="POST">
+        <table class="write">
+          <input type="hidden" name="id" value="<?=$_GET['id']?>">
+          <tr>
+            <td>제목 |&emsp;<input type="text" style="width:85%;" name="title" placeholder="20자 내로 입력해주세요." value="<?=$article['title']?>"></td>
+            <td>스포일러<input type="checkbox" name="spoiler" value="spoiler"></td>
+          </tr>
+          <tr>
+            <td colspan="2"><textarea name="description" rows="8" cols="80"><?=$article['description']?></textarea></td>
+          </tr>
+        </table>
+        <div><input type="submit"></div>
+      </form>
+    </div>
+<?php require_once('view/bottom.php');?>

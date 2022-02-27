@@ -1,0 +1,150 @@
+  @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+  ::-webkit-scrollbar {display: none;}
+
+  h1,h2,h3,h4 {
+    color: white;
+  }
+
+  head, body {
+    background-color : black;
+    margin: 10px 50px 30px 50px;
+    padding: 30px;
+    font-family: 'Song Myung', serif;
+    font-size: 25px;
+    line-height: 200%;
+    }
+
+  a {
+    text-align: center;
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color : white;
+  }
+
+  .nonlink {
+    color : 3f3f3f;
+  }
+
+  div {
+    color : white;
+  }
+
+  div.left {
+    float: left;
+    box-sizing: border-box;
+    height: 10%;
+    width: 50%;
+  }
+
+  div.right {
+    float: right;
+    box-sizing: border-box;
+    height: 10%;
+    width: 50%;
+  }
+
+  p,ol {
+    color : white;
+    line-height: 200%;
+  }
+
+  table {
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+
+
+  table.community {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+
+  table.write {
+    border-top: 1px solid #ccc;
+    border-bottom: 0px;
+    font-size: 25px;
+  }
+
+  table.write tr, table.write td {
+    border-bottom: 1px solid #ccc;
+    font-size: 25px;
+  }
+
+  input[type="submit"] {
+    background-color : black;
+    color : white;
+    border: none;
+    font-family: 'Song Myung', serif;
+    font-size: 25px;
+  }
+
+  input[type="submit"].answer {
+    border: none;
+    background-color : d4d4d4;
+    color : black;
+    font-family: 'Song Myung', serif;
+    font-size: 25px;
+    margin-top: 70px; margin-bottom: 70px;
+    padding-left: 10px; padding-right: 10px;
+  }
+
+  input[type="text"], input[type="password"], textarea {
+    color : black;
+    font-family: 'Song Myung', serif;
+    font-size: 25px;
+  }
+
+  form {
+    margin: 0px;
+  }
+
+  button {
+    background-color: black;
+    color: white;
+    font-family: 'Song Myung', serif;
+    font-size: 25px;
+  }
+
+
+  .right{
+    text-align: right;
+  }
+
+  .centering{
+    color : white;
+    text-align: center;
+  }
+
+  .title {
+    padding: 50px;
+    text-align: center;
+  }
+
+  .description {
+    margin: 10px 70px 30px 70px;
+    padding: 30px;
+  }
+
+  .box {
+    border: none;
+    background-color : d4d4d4;
+    color : black;
+    padding-left: 10px; padding-right: 10px;
+  }
+
+
+
+  #firsthint { display: none; }
+  #firsthint:checked ~ .one { display: block; }
+  .one {
+    display: none;
+  }
+
+  #secondhint { display: none; }
+  #secondhint:checked ~ .two { display: block; }
+  .two {
+    display: none;
+  }
