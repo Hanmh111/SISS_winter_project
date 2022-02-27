@@ -18,4 +18,4 @@
         그럼 즐거운 추리 시간 되시길 바랍니다.
     </div>
   </div>
-<?php require_once('bottom.php');?>
+<?php require_once('view/bottom.php');?>

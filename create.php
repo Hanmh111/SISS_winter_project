@@ -16,4 +16,4 @@
         <div><input type="submit"></div>
       </form>
   </div>
-  <?php require_once('view/bottom.php');?>
+<?php require_once('view/bottom.php');?>

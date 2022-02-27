@@ -1,7 +1,6 @@
 <?php
 session_start();
 $is_logged=$_SESSION['is_logged'];
-
 require_once('lib/conn.php');
 
 settype($_POST['id'], 'integer');

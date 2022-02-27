@@ -15,12 +15,7 @@ $sql = "
     VALUES(
         '{$filtered['title']}',
         '{$filtered['description']}',
-<<<<<<< HEAD
         '{$filtered['author']}'
-=======
-        '{$filtered['id']}'
-
->>>>>>> main
     )
 ";
 

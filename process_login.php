@@ -1,14 +1,6 @@
 <?php
 session_start();
-<<<<<<< HEAD
 require_once('lib/conn.php');
-=======
-$conn = mysqli_connect(
-  'localhost',
-  'root',
-  'qkrqhrja2',
-  'siss_winter');
->>>>>>> main
 
 $input_id=$_POST['id'];
 $input_pw=$_POST['pw'];
@@ -24,11 +16,7 @@ if (mysqli_num_rows($result)==1){
     $_SESSION['userid']=$input_id;
     if(isset($_SESSION['userid'])){
       ?><script>
-<<<<<<< HEAD
       alert("로그인 되었습니다.");
-=======
-      alert("로그인되었습니다.");
->>>>>>> main
       location.replace("./index.php");
       </script>
       <?php

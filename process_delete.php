@@ -1,13 +1,5 @@
 <?php
-<<<<<<< HEAD
 require_once('lib/conn.php');
-=======
-$conn = mysqli_connect(
-  'localhost',
-  'root',
-  'qkrqhrja2',
-  'siss_winter');
->>>>>>> main
 
 settype($_POST['id'], 'integer');
 $filtered = array(

@@ -1,18 +1,10 @@
 <?php
-<<<<<<< HEAD
 session_start();
 if(isset($_SESSION['is_logged'])){
   $is_logged = $_SESSION['is_logged'];} ?>
 
 <?php
   require_once('lib/conn.php');
-=======
-  $conn = mysqli_connect(
-    'localhost',
-    'root',
-    'qkrqhrja2',
-    'siss_winter');
->>>>>>> main
   $sql = "SELECT * FROM community_text";
   $result = mysqli_query($conn, $sql);
   $list = '';
