@@ -1,10 +1,6 @@
 <?php
 session_start();
-$conn = mysqli_connect(
-  'localhost',
-  'root',
-  'qkrqhrja2',
-  'siss_winter');
+require_once('lib/conn.php');
 
 $input_id=$_POST['id'];
 $input_pw=$_POST['pw'];
@@ -45,4 +41,3 @@ history.back();
 <?php
         }
 ?>
-

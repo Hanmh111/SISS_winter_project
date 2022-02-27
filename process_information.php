@@ -1,11 +1,7 @@
 <?php
 session_start();
 $is_logged=$_SESSION['is_logged'];
-$conn = mysqli_connect(
-  'localhost',
-  'root',
-  'qkrqhrja2',
-  'siss_winter');
+require_once('lib/conn.php');
 
 $filtered = array(
   'title'=>mysqli_real_escape_string($conn, $_POST['title']),

@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>SISS Winter Projext</title>
-      <link rel="stylesheet" href="style.css">
-      <script type="text/javascript" src=""></script>
-  </head>
-  <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<?php require_once('view/top.php');?>
     <div class="centering"><a href="index.php"><img src="banner.jpg" width="150" height="150"></a>
     <h1>추리 게임</a></h1>
     <h2>로그인</h2>
@@ -26,9 +18,4 @@
       <a href=sign_in.php>회원가입</a>
     </form>
   </div>
-  </body>
-</html>
-
-
-<!-- ID : <input type="text" name="id"/></br>
-PW : <input type="password" name="pw"/></p>-->
+<?php require_once('view/bottom.php');?>

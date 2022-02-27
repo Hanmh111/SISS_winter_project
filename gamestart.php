@@ -16,11 +16,7 @@ else {
 ?>
 
 <?php
-  $conn = mysqli_connect(
-    'localhost',
-    'root',
-    'qkrqhrja2',
-    'siss_winter');
+  require_once('lib/conn.php');
 
   $sql = "SELECT * FROM gamelogin LEFT JOIN gamelevel ON gamelogin.level = gamelevel.id Where login_id = '{$_SESSION['userid']}'";
   $result = mysqli_query($conn, $sql);
@@ -77,15 +73,7 @@ else {
 ?>
 
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>SISS Winter Projext</title>
-      <link rel="stylesheet" href="style.css">
-      <script type="text/javascript" src=""></script>
-  </head>
-  <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<?php require_once('view/top.php');?>
     <div class="description">
       <div>
         <div class="centering"><a href="index.php"><img src="banner.jpg" width="150" height="150"></a></div>
@@ -93,11 +81,7 @@ else {
           <div><?=$game['description']?></div>
 
              <?php
-             $conn = mysqli_connect(
-               'localhost',
-               'root',
-               'qkrqhrja2',
-               'siss_winter');
+             require_once('lib/conn.php');
 
              if(isset($_GET['id'])){?>
                <input id="firsthint" type="checkbox" />
@@ -111,17 +95,11 @@ else {
                $row = mysqli_fetch_array($result_id);
                echo $row['firsthint']."<br>";
              }
-
-             mysqli_close($conn);
              ?>
            </div>
 
              <?php
-               $conn = mysqli_connect(
-                 'localhost',
-                 'root',
-                 'qkrqhrja2',
-                 'siss_winter');
+               require_once('lib/conn.php');
 
                if(isset($_GET['id'])) {?>
 
@@ -136,8 +114,6 @@ else {
                  $row = mysqli_fetch_array($result_id);
                  echo $row['secondhint']. "<br>";
                }
-
-               mysqli_close($conn);
              ?>
           </div>
           <div class="centering"><?=$answer_link?></div>
@@ -147,5 +123,4 @@ else {
           <div><?=$list?></div>
         </div>
   </div>
-  </body>
-</html>
+<?php require_once('view/bottom.php');?>
