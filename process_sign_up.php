@@ -15,3 +15,4 @@
  }
 mysqli_close($conn);
 ?>
+<?php require_once('view/process_black.php'); ?>

@@ -45,3 +45,4 @@ if ($filtered['answer'] == $row_game['answer']) {
 <?php
     }
 ?>
+<?php require_once('view/process_black.php'); ?>

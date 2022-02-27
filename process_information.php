@@ -25,3 +25,4 @@ if($result === false){
   error_log(mysqli_error($conn));}
 header('Location: /community.php');
 ?>
+<?php require_once('view/process_black.php'); ?>

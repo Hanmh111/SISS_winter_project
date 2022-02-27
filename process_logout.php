@@ -11,3 +11,4 @@ if($result){
   <?php
 }
  ?>
+<?php require_once('view/process_black.php'); ?>

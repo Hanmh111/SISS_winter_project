@@ -41,3 +41,4 @@ history.back();
 <?php
         }
 ?>
+<?php require_once('view/process_black.php'); ?>
